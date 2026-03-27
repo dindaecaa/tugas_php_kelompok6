@@ -171,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     <?php if (!$person): ?>
         <!-- ===== FORM ===== -->
-        <h2>Contact Form</h2>
+        <h2>✨ Contact Form Kelompok 6</h2>
 
         <?php if (!empty($errors)): ?>
             <div class="errors">
@@ -207,26 +207,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         </form>
 
     <?php else: ?>
-        <!-- ===== FORM (readonly, menampilkan nilai) ===== -->
-        <h2>Contact Form</h2>
+        <h2>💜 Data Berhasil Dikirim</h2>
 
-        <input type="text" value="<?= $person->firstname ?>" readonly>
-        <input type="text" value="<?= $person->lastname ?>" readonly>
-        <input type="tel"  value="<?= $person->phone ?>" readonly>
-        <textarea readonly><?= $person->address ?></textarea>
-        <button class="btn-submit" disabled>Submit</button>
+    <div class="result">
+        <p><strong>Nama:</strong> <?= $person->getFullName() ?></p>
+        <p><strong>Phone:</strong> <?= $person->phone ?></p>
+        <p><strong>Address:</strong> <?= $person->address ?></p>
+    </div>
 
-        <!-- ===== RESULT ===== -->
-        <div class="result">
-            <p>Hi, my name is <?= $person->getFullName() ?></p>
-            <p>Phone Number : <?= $person->phone ?></p>
-            <p>Address : <?= $person->address ?></p>
+    <form method="GET">
+        <button type="submit" class="btn-reset">Reset</button>
+    </form>
 
-            <!-- Tombol Reset kembali ke form kosong -->
-            <form method="GET" action="">
-                <button type="submit" class="btn-reset">Reset</button>
-            </form>
-        </div>
+<?php endif; ?>
 
     <?php endif; ?>
 
